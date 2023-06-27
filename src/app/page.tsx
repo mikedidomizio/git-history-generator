@@ -1,5 +1,6 @@
 'use client'
-import {Item, ItemProps, ItemWrapper} from "@/components/Item";
+import {ItemProps,} from "@/components/Item";
+import {Timeline} from "@/components/Timeline";
 
 export default function Home() {
   const gitHistory: (undefined | ItemProps)[][] = [
@@ -45,14 +46,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-6">
-      <div className="flex gap-5 flex-col">
-      {gitHistory.map((nestedCommit, index) => {
-        return <div className="flex gap-10" key={index}>{nestedCommit.map((commit) => {
-          return commit ? <Item key={commit.id} {...commit} /> : <ItemWrapper id={'' + Math.random()} />
-        })}</div>
-      })
-      }
-      </div>
+      <Timeline items={gitHistory} />
     </main>
   )
 }
