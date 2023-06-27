@@ -10,7 +10,12 @@ Here it is here for reference:
 
 Here is the same representation in JSON format rendered by the project.
 
-![Git website showing rebase in image format](./docs/git-visualizer-rebase-example.png)
+![Project showing visualization of rebase](./docs/git-visualizer-rebase-example.png)
+
+I added bounce to certain items if wanted (Ignore that the animation doesn't really loop seamlessly)
+
+![Project showing visualization of rebase with bounce](./docs/git-visualizer-rebase-example-bounce.gif)
+
 
 Currently, this is what is needed to render that:
 
