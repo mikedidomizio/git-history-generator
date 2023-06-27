@@ -1,14 +1,16 @@
+'use client'
 import {Commit, CommitProps} from "@/components/Commit";
-
 
 export default function Home() {
   const commits: CommitProps[][] = [
     [{
       id: 'a1',
       text: 'a1',
+      arrowTo: 'b1',
     }, {
       id: 'a2',
       text: 'a2',
+      arrowTo: 'b1'
     }],
     [
       {
