@@ -2,11 +2,11 @@ import Xarrow from "react-xarrows";
 import {ItemProps, ItemWrapper} from "@/components/Item";
 import clsx from "clsx";
 
-export type CommitProps = Pick<ItemProps, 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
+export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
 
 export const Commit = (props: CommitProps) => {
     return <>
-        <ItemWrapper id={props.id} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]')}>
+        <ItemWrapper id={props.id} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]', props?.bounce ? 'animate-bounce' : null)}>
             {props.text}
         </ItemWrapper>
         {props.arrowTo?.map((arrow) => {

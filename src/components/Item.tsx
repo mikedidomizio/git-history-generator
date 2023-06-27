@@ -1,10 +1,11 @@
-import {Commit, CommitProps} from "@/components/Commit";
-import {Branch, BranchProps} from "@/components/Branch";
+import {Commit} from "@/components/Commit";
+import {Branch} from "@/components/Branch";
 import clsx from "clsx";
 import {ReactNode} from "react";
 
 
 export type ItemProps = {
+  bounce?: boolean,
   dimmed?: boolean
   id: string,
   text: string,
@@ -13,7 +14,6 @@ export type ItemProps = {
 }
 
 export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode, classNames?: string, id: string}) => {
-  console.log(id)
   return <div id={id} className={clsx("inline text-center w-[120px] p-1", classNames)}>{children}</div>
 }
 
