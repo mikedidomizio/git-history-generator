@@ -10,7 +10,6 @@ type Arrow = {
 
 export type ItemProps = {
   bounce?: boolean,
-  dashedArrow?: boolean,
   dimmed?: boolean
   id: string,
   text?: string,
