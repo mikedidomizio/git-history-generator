@@ -1,16 +1,19 @@
-import {Commit, CommitComponentProps, CommitProps} from "@/components/Commit";
+import {Commit, CommitComponentProps} from "@/components/Commit";
 import {Branch, BranchComponentProps} from "@/components/Branch";
 import clsx from "clsx";
 import {ReactNode} from "react";
 
+type Arrow = {
+  dashed?: boolean,
+  to: string,
+}
 
 export type ItemProps = {
   bounce?: boolean,
-  dashedArrow?: boolean,
   dimmed?: boolean
   id: string,
   text?: string,
-  arrowTo?: string[],
+  arrowTo?: Arrow[],
   type?: 'commit' | 'branch'
 } & BranchComponentProps & CommitComponentProps
 

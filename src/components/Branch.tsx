@@ -4,7 +4,7 @@ import {Arrow} from "@/components/Arrow";
 
 export type BranchComponentProps = { branchComponent?: (props: BranchProps) => ReactNode }
 
-export type BranchProps = Pick<ItemProps, 'arrowTo' | 'dashedArrow' | 'id' | 'text' | 'type'> & BranchComponentProps
+export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & BranchComponentProps
 
 export const Branch = (props: BranchProps) => {
   if (props.branchComponent) {
@@ -16,7 +16,7 @@ export const Branch = (props: BranchProps) => {
       {props.text}
     </ItemWrapper>
     {props.arrowTo?.map((arrow) => {
-      return <Arrow key={arrow} arrow={arrow} dashedArrow={props.dashedArrow || false} id={props.id} />
+      return <Arrow key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </>
 }

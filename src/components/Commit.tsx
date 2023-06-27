@@ -1,4 +1,3 @@
-import Xarrow from "react-xarrows";
 import {ItemProps, ItemWrapper} from "@/components/Item";
 import clsx from "clsx";
 import {ReactNode} from "react";
@@ -6,7 +5,7 @@ import {Arrow} from "@/components/Arrow";
 
 export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
 
-export type CommitProps = Pick<ItemProps, 'bounce' | 'dashedArrow' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
+export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
 & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
@@ -19,7 +18,7 @@ export const Commit = (props: CommitProps) => {
             {props.text}
         </ItemWrapper>
         {props.arrowTo?.map((arrow) => {
-            return <Arrow color={props?.dimmed ? '#786F6880' : '#786F68'} key={arrow} arrow={arrow} dashedArrow={props.dashedArrow || false} id={props.id} />
+            return <Arrow color={props?.dimmed ? '#786F6880' : '#786F68'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
         })}
     </>
 }

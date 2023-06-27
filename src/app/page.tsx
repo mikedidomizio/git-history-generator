@@ -23,11 +23,15 @@ export default function Home() {
       dimmed: true,
       id: 'C4',
       text: 'C4',
-      arrowTo: ['C2']
+      arrowTo: [{
+        to: 'C2'
+      }]
     }, {
       id: 'experiment',
       text: 'experiment',
-      arrowTo: ['C4\''],
+      arrowTo: [{
+        to: 'C4\''
+      }],
       type: 'branch'
     }],
     [{
@@ -36,25 +40,35 @@ export default function Home() {
     }, {
       id: 'C1',
       text: 'C1',
-      arrowTo: ['C0']
+      arrowTo: [{
+        to: 'C0'
+      }]
     }, {
       id: 'C2',
       text: 'C2',
-      arrowTo: ['C1']
+      arrowTo: [{
+        to: 'C1'
+      }]
     }, {
       id: 'C3',
       text: 'C3',
-      arrowTo: ['C2']
+      arrowTo: [{
+        to: 'C2'
+      }],
     }, {
       bounce: true,
       id: 'C4\'',
-      arrowTo: ['C3']
+      arrowTo: [{
+        to: 'C3'
+      }]
     }
   ], [
     undefined, undefined, undefined, {
         id: 'master',
         text: 'master',
-        arrowTo: ['C3'],
+        arrowTo: [{
+          to: 'C3'
+        }],
         type: 'branch'
       }
     ]]
