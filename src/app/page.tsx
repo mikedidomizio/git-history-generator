@@ -32,7 +32,6 @@ export default function Home() {
     }, {
       bounce: true,
       id: 'C4\'',
-      text: 'C4\'',
       arrowTo: ['C3']
     }
   ], [
