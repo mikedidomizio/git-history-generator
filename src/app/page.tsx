@@ -1,6 +1,4 @@
 'use client'
-import {Commit, CommitProps} from "@/components/Commit";
-import {BranchProps} from "@/components/Branch";
 import {Item} from "@/components/Item";
 
 type GitSchema = {
