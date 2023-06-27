@@ -1,6 +1,21 @@
 'use client'
 import {ItemProps,} from "@/components/Item";
 import {Timeline} from "@/components/Timeline";
+import {CommitProps} from "@/components/Commit";
+import {BranchProps} from "@/components/Branch";
+
+const Commit = (props: CommitProps) => {
+  return <div className="bg-[#F05033] text-white rounded-full p-3">
+    {props.text}
+  </div>
+}
+
+const Branch = (props: BranchProps) => {
+  return <div className="bg-blue-600 text-white p-3">
+    {props.text}
+  </div>
+}
+
 
 export default function Home() {
   const gitHistory: (undefined | ItemProps)[][] = [
@@ -47,6 +62,8 @@ export default function Home() {
   return (
     <main className="min-h-screen p-6">
       <Timeline items={gitHistory} />
+      <br/>
+      <Timeline items={gitHistory} commitComponent={Commit} branchComponent={Branch} />
     </main>
   )
 }
