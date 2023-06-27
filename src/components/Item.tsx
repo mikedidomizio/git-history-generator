@@ -12,8 +12,9 @@ export type ItemProps = {
   type?: 'commit' | 'branch'
 }
 
-export const ItemWrapper = ({ children, classNames, id }: {children: ReactNode, classNames: string, id: string}) => {
-  return <div id={id} className={clsx("inline text-center w-[120px] p-1 px-8", classNames)}>{children}</div>
+export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode, classNames?: string, id: string}) => {
+  console.log(id)
+  return <div id={id} className={clsx("inline text-center w-[120px] p-1", classNames)}>{children}</div>
 }
 
 export const Item = (props: ItemProps) => {

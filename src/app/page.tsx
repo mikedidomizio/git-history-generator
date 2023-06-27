@@ -1,44 +1,53 @@
 'use client'
-import {Item, ItemProps} from "@/components/Item";
+import {Item, ItemProps, ItemWrapper} from "@/components/Item";
 
 export default function Home() {
   const gitSchema: (undefined | ItemProps)[][] = [
-    [{
-      id: 'a1',
-      text: 'a1',
-      arrowTo: ['b1'],
+    [undefined, undefined, undefined, {
+      id: 'C4',
+      text: 'C4',
+      arrowTo: ['C2']
     }, {
-      id: 'a2',
-      text: 'a2',
-      arrowTo: ['b1']
-    }, {
-      dimmed: true,
-      id: 'a3',
-      text: 'a3',
-      arrowTo: ['a2']
+      id: 'experiment',
+      text: 'experiment',
+      arrowTo: ['C4\''],
+      type: 'branch'
     }],
-    [
-      {
-        id: 'b1',
-        text: 'b1',
-      }
-    ]
-  , [
-      undefined,undefined, {
-        arrowTo: ['b1'],
+    [{
+      id: 'C0',
+      text: 'C0',
+    }, {
+      id: 'C1',
+      text: 'C1',
+      arrowTo: ['C0']
+    }, {
+      id: 'C2',
+      text: 'C2',
+      arrowTo: ['C1']
+    }, {
+      id: 'C3',
+      text: 'C3',
+      arrowTo: ['C2']
+    }, {
+      id: 'C4\'',
+      text: 'C4\'',
+      arrowTo: ['C3']
+    }
+  ], [
+    undefined, undefined, undefined, {
         id: 'master',
         text: 'master',
+        arrowTo: ['C3'],
         type: 'branch'
       }
-    ]
-  ]
+    ]]
 
   return (
     <main className="min-h-screen">
       <div className="flex gap-5 flex-col">
       {gitSchema.map((nestedCommit, index) => {
         return <div className="flex gap-10" key={index}>{nestedCommit.map((commit) => {
-          return commit ? <Item key={commit.id} {...commit} /> : null
+          return commit ? <Item key={commit.id} {...commit} /> : <ItemWrapper />
         })}</div>
       })
       }
