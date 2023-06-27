@@ -16,7 +16,6 @@ const Branch = (props: BranchProps) => {
   </div>
 }
 
-
 export default function Home() {
   const gitHistory: (undefined | ItemProps)[][] = [
     [undefined, undefined, undefined, {
