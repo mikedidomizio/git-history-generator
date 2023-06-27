@@ -2,10 +2,10 @@ import {Commit, CommitProps} from "@/components/Commit";
 import {Branch, BranchProps} from "@/components/Branch";
 
 
-type ItemProps = {
+export type ItemProps = {
   id: string,
   text: string,
-  arrowTo?: string,
+  arrowTo?: string[],
   type?: 'commit' | 'branch'
 }
 

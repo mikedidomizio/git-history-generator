@@ -6,7 +6,7 @@ import {Item} from "@/components/Item";
 type GitSchema = {
   id: string,
   text: string,
-  arrowTo?: string,
+  arrowTo?: string[],
   type?: 'commit' | 'branch'
 }
 
@@ -15,11 +15,15 @@ export default function Home() {
     [{
       id: 'a1',
       text: 'a1',
-      arrowTo: 'b1',
+      arrowTo: ['b1'],
     }, {
       id: 'a2',
       text: 'a2',
-      arrowTo: 'b1'
+      arrowTo: ['b1']
+    }, {
+      id: 'a3',
+      text: 'a3',
+      arrowTo: ['a2']
     }],
     [
       {
@@ -29,7 +33,7 @@ export default function Home() {
     ]
   , [
       undefined,undefined, {
-        arrowTo: 'b1',
+        arrowTo: ['b1'],
         id: 'master',
         text: 'master',
         type: 'branch'
