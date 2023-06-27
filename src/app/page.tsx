@@ -1,15 +1,8 @@
 'use client'
-import {Item} from "@/components/Item";
-
-type GitSchema = {
-  id: string,
-  text: string,
-  arrowTo?: string[],
-  type?: 'commit' | 'branch'
-}
+import {Item, ItemProps} from "@/components/Item";
 
 export default function Home() {
-  const gitSchema: (undefined | GitSchema)[][] = [
+  const gitSchema: (undefined | ItemProps)[][] = [
     [{
       id: 'a1',
       text: 'a1',
@@ -19,6 +12,7 @@ export default function Home() {
       text: 'a2',
       arrowTo: ['b1']
     }, {
+      dimmed: true,
       id: 'a3',
       text: 'a3',
       arrowTo: ['a2']

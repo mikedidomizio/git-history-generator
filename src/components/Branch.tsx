@@ -1,7 +1,7 @@
 import Xarrow from "react-xarrows";
 import {ItemProps} from "@/components/Item";
 
-export type BranchProps = Omit<ItemProps, 'type'>
+export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'>
 
 export const Branch = (props: BranchProps) => {
   return <>

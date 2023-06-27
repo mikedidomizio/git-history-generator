@@ -3,6 +3,7 @@ import {Branch, BranchProps} from "@/components/Branch";
 
 
 export type ItemProps = {
+  dimmed?: boolean
   id: string,
   text: string,
   arrowTo?: string[],
