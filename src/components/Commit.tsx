@@ -2,7 +2,7 @@ import Xarrow from "react-xarrows";
 import {ItemProps, ItemWrapper} from "@/components/Item";
 import clsx from "clsx";
 
-export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
+export type CommitProps = Pick<ItemProps, 'bounce' | 'dashedArrow' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
 
 export const Commit = (props: CommitProps) => {
     return <>
@@ -12,6 +12,7 @@ export const Commit = (props: CommitProps) => {
         {props.arrowTo?.map((arrow) => {
             return <Xarrow
               key={arrow}
+              dashness={props.dashedArrow}
               start={props.id}
               end={arrow}
               headSize={5}

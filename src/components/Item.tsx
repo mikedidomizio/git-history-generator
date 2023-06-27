@@ -6,6 +6,7 @@ import {ReactNode} from "react";
 
 export type ItemProps = {
   bounce?: boolean,
+  dashedArrow?: boolean,
   dimmed?: boolean
   id: string,
   text: string,

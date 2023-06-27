@@ -1,7 +1,7 @@
 import Xarrow from "react-xarrows";
 import {ItemProps, ItemWrapper} from "@/components/Item";
 
-export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'>
+export type BranchProps = Pick<ItemProps, 'arrowTo' | 'dashedArrow' | 'id' | 'text' | 'type'>
 
 export const Branch = (props: BranchProps) => {
   return <>
@@ -11,6 +11,7 @@ export const Branch = (props: BranchProps) => {
     {props.arrowTo?.map((arrow) => {
       return <Xarrow
         key={arrow}
+        dashness={props.dashedArrow}
         start={props.id}
         end={arrow}
         headSize={5}
