@@ -12,7 +12,7 @@ export const Commit = (props: CommitProps) => {
               start={props.id}
               end={arrow}
               headSize={5}
-              curveness={false as unknown as number}
+              curveness={0}
               strokeWidth={2}
               color="#786F68"
             />
