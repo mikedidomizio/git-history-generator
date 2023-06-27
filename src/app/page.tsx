@@ -1,8 +1,17 @@
 'use client'
 import {Commit, CommitProps} from "@/components/Commit";
+import {BranchProps} from "@/components/Branch";
+import {Item} from "@/components/Item";
+
+type GitSchema = {
+  id: string,
+  text: string,
+  arrowTo?: string,
+  type?: 'commit' | 'branch'
+}
 
 export default function Home() {
-  const commits: CommitProps[][] = [
+  const gitSchema: (undefined | GitSchema)[][] = [
     [{
       id: 'a1',
       text: 'a1',
@@ -18,14 +27,22 @@ export default function Home() {
         text: 'b1',
       }
     ]
+  , [
+      undefined,undefined, {
+        arrowTo: 'b1',
+        id: 'master',
+        text: 'master',
+        type: 'branch'
+      }
+    ]
   ]
 
   return (
     <main className="min-h-screen">
       <div className="flex gap-10 flex-col">
-      {commits.map((nestedCommit, index) => {
+      {gitSchema.map((nestedCommit, index) => {
         return <div className="flex gap-10" key={index}>{nestedCommit.map((commit) => {
-            return <Commit key={commit.id} {...commit}/>
+          return commit ? <Item key={commit.id} {...commit} /> : null
         })}</div>
       })
       }
