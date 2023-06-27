@@ -6,6 +6,7 @@ import {Arrow} from "@/components/Arrow";
 export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
 
 export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
+
 & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
