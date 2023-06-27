@@ -1,6 +1,6 @@
 # Git Commit Visualizer
 
-The purpose of this project (so far) is to be able to allow me to render git trees similar to [git-scm.com](git-scm.com).
+The purpose of this project (so far) is for me to be able to render git commits/branches similar to [git-scm.com](git-scm.com).
 
 For instance here is an [image on the Git website](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that shows a visualization of rebasing a branch.
 
@@ -10,12 +10,12 @@ Here it is here for reference:
 
 Here is the same representation in JSON format rendered by the project.
 
-![Git website showing rebase in image format](./docs/git-visualizer-rebase-screenshot.png)
+![Git website showing rebase in image format](./docs/git-visualizer-rebase-example.png)
 
-Currently this is what is needed to render that:
+Currently, this is what is needed to render that:
 
 ```tsx
-const gitSchema: (undefined | ItemProps)[][] = [
+const gitHistory = [
   [undefined, undefined, undefined, {
     dimmed: true,
     id: 'C4',
