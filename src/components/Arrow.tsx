@@ -11,7 +11,6 @@ export type ArrowProps = {
 }
 
 export const Arrow = ({ arrow, color, dashedArrow, id}: ArrowProps) => {
-  console.log('in original arrow', arrow, dashedArrow, id, color)
   return <Xarrow
     dashness={dashedArrow}
     start={id}

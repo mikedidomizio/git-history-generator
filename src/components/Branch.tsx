@@ -4,18 +4,15 @@ import {Arrow, ArrowComponentProps} from "@/components/Arrow";
 
 export type BranchComponentProps = { branchComponent?: (props: BranchProps) => ReactNode }
 
-export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & ArrowComponentProps & BranchComponentProps
+export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & { uniqueKey: string } & ArrowComponentProps & BranchComponentProps
 
 export const Branch = (props: BranchProps) => {
   if (props.branchComponent) {
-    console.log('in here')
     return <props.branchComponent {...props} />
   }
 
-  console.log('not here')
-
   return <>
-    <ItemWrapper id={props.id} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
+    <ItemWrapper id={props.id + props.uniqueKey} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
       {props.text}
     </ItemWrapper>
     {props.arrowTo?.map((arrow) => {

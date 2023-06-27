@@ -23,9 +23,11 @@ export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode,
 }
 
 export const Item = (props: ItemProps) => {
+  const randomTimelineKey = Math.random()
+
   if (props.type === 'branch') {
-    return <Branch {...props}/>
+    return <Branch uniqueKey={'' + randomTimelineKey} {...props}/>
   }
 
-  return <Commit {...props} />
+  return <Commit uniqueKey={'' + randomTimelineKey} {...props} />
 }

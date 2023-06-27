@@ -6,7 +6,7 @@ import {Arrow, ArrowComponentProps} from "@/components/Arrow";
 export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
 
 export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
-& ArrowComponentProps & CommitComponentProps
+  & { uniqueKey: string } & ArrowComponentProps & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
     if (props.commitComponent) {
@@ -14,7 +14,7 @@ export const Commit = (props: CommitProps) => {
     }
 
     return <>
-        <ItemWrapper id={props.id} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]', props?.bounce ? 'animate-bounce' : null)}>
+        <ItemWrapper id={props.id + props.uniqueKey} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]', props?.bounce ? 'animate-bounce' : null)}>
             {props.text}
         </ItemWrapper>
         {props.arrowTo?.map((arrow) => {
