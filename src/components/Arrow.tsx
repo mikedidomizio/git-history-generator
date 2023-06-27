@@ -1,6 +1,9 @@
 import Xarrow, {refType} from "react-xarrows";
+import {ReactNode} from "react";
 
-type ArrowProps = {
+export type ArrowComponentProps = { arrowComponent?: (props: ArrowProps) => ReactNode }
+
+export type ArrowProps = {
   arrow: refType
   color?: string
   dashedArrow: boolean
@@ -8,6 +11,7 @@ type ArrowProps = {
 }
 
 export const Arrow = ({ arrow, color, dashedArrow, id}: ArrowProps) => {
+  console.log('in original arrow', arrow, dashedArrow, id, color)
   return <Xarrow
     dashness={dashedArrow}
     start={id}

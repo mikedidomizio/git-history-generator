@@ -1,12 +1,12 @@
 import {ItemProps, ItemWrapper} from "@/components/Item";
 import clsx from "clsx";
 import {ReactNode} from "react";
-import {Arrow} from "@/components/Arrow";
+import {Arrow, ArrowComponentProps} from "@/components/Arrow";
 
 export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
 
 export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
-& CommitComponentProps
+& ArrowComponentProps & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
     if (props.commitComponent) {

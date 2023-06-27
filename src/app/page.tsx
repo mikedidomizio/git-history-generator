@@ -3,16 +3,38 @@ import {ItemProps,} from "@/components/Item";
 import {Timeline} from "@/components/Timeline";
 import {CommitProps} from "@/components/Commit";
 import {BranchProps} from "@/components/Branch";
+import {Arrow, ArrowProps} from "@/components/Arrow";
+import Xarrow from "react-xarrows";
+
+const Arrow2 = ({ id, dashedArrow, arrow}: ArrowProps) => {
+  return <Xarrow
+    dashness={dashedArrow}
+    start={id}
+    end={arrow}
+    headSize={7}
+    curveness={0}
+    strokeWidth={2}
+    color='#FF0000'
+  />
+}
 
 const Commit = (props: CommitProps) => {
-  return <div className="bg-[#F05033] text-white rounded-full p-3">
+  console.log('my id', props.id)
+  return <div id={props.id} className="bg-[#F05033] text-white rounded-full p-3">
     {props.text}
+    {props.arrowTo?.map((arrow) => {
+      console.log('mapping', props.id,  arrow.to)
+      return <Arrow color={props?.dimmed ? '#786F6880' : '#786F68'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+    })}
   </div>
 }
 
 const Branch = (props: BranchProps) => {
-  return <div className="bg-blue-600 text-white p-3">
+  return <div id={props.id} className="bg-blue-600 text-white p-3">
     {props.text}
+    {props.arrowTo?.map((arrow) => {
+      return <Arrow color={'#786F6880'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+    })}
   </div>
 }
 
@@ -57,6 +79,7 @@ export default function Home() {
     }, {
       bounce: true,
       id: 'C4\'',
+      text: 'C4\'',
       arrowTo: [{
         to: 'C3'
       }]
@@ -75,8 +98,8 @@ export default function Home() {
   return (
     <main className="min-h-screen p-6">
       <Timeline items={gitHistory} />
-      <br/>
-      <Timeline items={gitHistory} commitComponent={Commit} branchComponent={Branch} />
+      {/*<br/>*/}
+      {/*<Timeline items={gitHistory} commitComponent={Commit} branchComponent={Branch} />*/}
     </main>
   )
 }
