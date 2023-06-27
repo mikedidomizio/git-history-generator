@@ -1,11 +1,13 @@
 import Xarrow from "react-xarrows";
-import {ItemProps} from "@/components/Item";
+import {ItemProps, ItemWrapper} from "@/components/Item";
 
 export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'>
 
 export const Branch = (props: BranchProps) => {
   return <>
-    <div id={props.id} className="inline bg-[#F44D27] w-[120px] text-center text-[#E3D7D9] p-1 px-8">{props.text}</div>
+    <ItemWrapper id={props.id} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
+      {props.text}
+    </ItemWrapper>
     {props.arrowTo?.map((arrow) => {
       return <Xarrow
         key={arrow}

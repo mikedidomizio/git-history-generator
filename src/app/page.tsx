@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <div className="flex gap-10 flex-col">
+      <div className="flex gap-5 flex-col">
       {gitSchema.map((nestedCommit, index) => {
         return <div className="flex gap-10" key={index}>{nestedCommit.map((commit) => {
           return commit ? <Item key={commit.id} {...commit} /> : null
