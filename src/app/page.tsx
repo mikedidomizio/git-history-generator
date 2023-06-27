@@ -4,6 +4,7 @@ import {Item, ItemProps, ItemWrapper} from "@/components/Item";
 export default function Home() {
   const gitSchema: (undefined | ItemProps)[][] = [
     [undefined, undefined, undefined, {
+      dimmed: true,
       id: 'C4',
       text: 'C4',
       arrowTo: ['C2']
