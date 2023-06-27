@@ -1,20 +1,24 @@
-import {Commit} from "@/components/Commit";
-import {Branch} from "@/components/Branch";
+import {Commit, CommitComponentProps} from "@/components/Commit";
+import {Branch, BranchComponentProps} from "@/components/Branch";
 import clsx from "clsx";
 import {ReactNode} from "react";
 
+type Arrow = {
+  dashed?: boolean,
+  to: string,
+}
 
 export type ItemProps = {
   bounce?: boolean,
   dimmed?: boolean
   id: string,
-  text: string,
-  arrowTo?: string[],
+  text?: string,
+  arrowTo?: Arrow[],
   type?: 'commit' | 'branch'
-}
+} & BranchComponentProps & CommitComponentProps
 
 export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode, classNames?: string, id: string}) => {
-  return <div id={id} className={clsx("inline text-center w-[120px] p-1", classNames)}>{children}</div>
+  return <div id={id} className={clsx("inline text-center w-[120px] p-1 py-2", classNames)}>{children}</div>
 }
 
 export const Item = (props: ItemProps) => {
@@ -22,5 +26,5 @@ export const Item = (props: ItemProps) => {
     return <Branch {...props}/>
   }
 
-  return <Commit {...props}/>
+  return <Commit {...props} />
 }

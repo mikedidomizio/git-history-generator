@@ -1,6 +1,6 @@
 # Git Commit Visualizer
 
-The purpose of this project (so far) is for me to be able to render git commits/branches similar to [git-scm.com](git-scm.com).
+The purpose of this project (so far) is for me to be able to render git commits/branches similar to [git-scm.com](https://git-scm.com).
 
 For instance here is an [image on the Git website](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that shows a visualization of rebasing a branch.
 
