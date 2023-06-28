@@ -1,8 +1,16 @@
 # Git History Generator
 
+## Description
+
 The purpose of this project (so far) is for me to be able to render git commits/branches similar to [git-scm.com](https://git-scm.com).
 
-For instance here is an [image on the Git website](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that shows a visualization of rebasing a branch.
+## Demo
+
+https://git-history-generator.vercel.app/
+
+## Comparison
+
+Here is an [image on the Git website](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that shows a visualization of rebasing a branch.
 
 Here it is here for reference:
 
@@ -12,12 +20,7 @@ Here is the same representation in JSON format rendered by the project.
 
 ![Project showing visualization of rebase](./docs/git-visualizer-rebase-example.png)
 
-I added bounce to certain items if wanted (Ignore that the animation doesn't really loop seamlessly)
-
-![Project showing visualization of rebase with bounce](./docs/git-visualizer-rebase-example-bounce.gif)
-
-
-Currently, this is what is needed to render that:
+### Data to have it render that
 
 ```tsx
 const gitHistory = [
