@@ -1,18 +1,18 @@
 import {ItemProps, ItemWrapper} from "@/components/Item";
 import {ReactNode} from "react";
-import {Arrow, ArrowComponentProps} from "@/components/Arrow";
+import {Arrow} from "@/components/Arrow";
 
 export type BranchComponentProps = { branchComponent?: (props: BranchProps) => ReactNode }
 
-export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & { uniqueKey: string } & ArrowComponentProps & BranchComponentProps
+export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & BranchComponentProps
 
 export const Branch = (props: BranchProps) => {
   if (props.branchComponent) {
-    return <props.branchComponent {...props} />
+    return <div id={props.id}><props.branchComponent {...props} /></div>
   }
 
   return <>
-    <ItemWrapper id={props.id + props.uniqueKey} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
+    <ItemWrapper id={props.id} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
       {props.text}
     </ItemWrapper>
     {props.arrowTo?.map((arrow) => {

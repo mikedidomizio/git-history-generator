@@ -1,7 +1,4 @@
 import Xarrow, {refType} from "react-xarrows";
-import {ReactNode} from "react";
-
-export type ArrowComponentProps = { arrowComponent?: (props: ArrowProps) => ReactNode }
 
 export type ArrowProps = {
   arrow: refType
