@@ -10,6 +10,8 @@ https://git-history-generator.vercel.app/
 
 ## Comparison
 
+### git-scm.com example
+
 Here is an [image on the Git website](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that shows a visualization of rebasing a branch.
 
 Here it is here for reference:
@@ -20,51 +22,12 @@ Here is the same representation in JSON format rendered by the project.
 
 ![Project showing visualization of rebase](./docs/git-visualizer-rebase-example.png)
 
+### Allows custom styling/components
+
 Here is an image with custom components passed in as props to override the design.
 
 ![Custom components rendering](./docs/git-bubble-commits.png)
 
-### Data to have it render that
+### Atlassian Example
 
-```tsx
-const gitHistory = [
-  [null, null, null, {
-    dimmed: true,
-    id: 'C4',
-    text: 'C4',
-    arrowTo: ['C2']
-  }, {
-    id: 'experiment',
-    text: 'experiment',
-    arrowTo: ['C4\''],
-    type: 'branch'
-  }],
-  [{
-    id: 'C0',
-    text: 'C0',
-  }, {
-    id: 'C1',
-    text: 'C1',
-    arrowTo: ['C0']
-  }, {
-    id: 'C2',
-    text: 'C2',
-    arrowTo: ['C1']
-  }, {
-    id: 'C3',
-    text: 'C3',
-    arrowTo: ['C2']
-  }, {
-    id: 'C4\'',
-    text: 'C4\'',
-    arrowTo: ['C3']
-  }
-  ], [
-    null, null, null, {
-      id: 'master',
-      text: 'master',
-      arrowTo: ['C3'],
-      type: 'branch'
-    }
-  ]]
-```
+![Custom components rendering](./docs/git-atlassian-example.png)
