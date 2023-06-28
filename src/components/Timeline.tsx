@@ -9,6 +9,7 @@ type TimelineProps = {
 export const Timeline = ({ branchComponent, commitComponent, items }: TimelineProps) => {
   // the purpose of this is because Xarrow depends on DOM element ID, if we reuse the same data
   // we run into duplicate ids
+  // we use base64 because it properly renders over Math.random()
   const randomTimelineKey = '--' + btoa(JSON.stringify(items))
 
   return <div className="flex gap-8 flex-col">
