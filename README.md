@@ -20,6 +20,10 @@ Here is the same representation in JSON format rendered by the project.
 
 ![Project showing visualization of rebase](./docs/git-visualizer-rebase-example.png)
 
+Here is an image with custom components passed in as props to override the design.
+
+![Custom components rendering](./docs/git-bubble-commits.png)
+
 ### Data to have it render that
 
 ```tsx
