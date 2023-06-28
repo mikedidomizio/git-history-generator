@@ -21,7 +21,7 @@ Currently, this is what is needed to render that:
 
 ```tsx
 const gitHistory = [
-  [undefined, undefined, undefined, {
+  [null, null, null, {
     dimmed: true,
     id: 'C4',
     text: 'C4',
@@ -53,7 +53,7 @@ const gitHistory = [
     arrowTo: ['C3']
   }
   ], [
-    undefined, undefined, undefined, {
+    null, null, null, {
       id: 'master',
       text: 'master',
       arrowTo: ['C3'],

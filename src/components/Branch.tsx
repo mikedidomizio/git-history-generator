@@ -7,7 +7,7 @@ export type BranchComponentProps = { branchComponent?: (props: BranchProps) => R
 export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & BranchComponentProps
 
 export const Branch = (props: BranchProps) => {
-  if (props.id.startsWith("undefined")) {
+  if (props.id.startsWith("null")) {
     if (props.branchComponent) {
       return <props.branchComponent {...props} />
     }

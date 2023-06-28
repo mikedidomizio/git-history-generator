@@ -8,7 +8,7 @@ export type CommitComponentProps = { commitComponent?: (props: CommitProps) => R
 export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'> & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
-    if (props.id.startsWith("undefined")) {
+    if (props.id.startsWith("null")) {
         if (props.commitComponent) {
             return <props.commitComponent {...props} />
         }
