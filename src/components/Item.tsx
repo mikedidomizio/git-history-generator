@@ -26,7 +26,6 @@ export const Item = (props: ItemProps & { uniqueKey: string }) => {
     ...arrow,
     to: arrow.to + props.uniqueKey
   }))
-
   const idWithUnique = props.id + props.uniqueKey
 
   if (props.type === 'branch') {
