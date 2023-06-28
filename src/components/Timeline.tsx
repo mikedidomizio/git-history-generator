@@ -15,7 +15,7 @@ export const Timeline = ({ branchComponent, commitComponent, items }: TimelinePr
   return <div className="flex gap-8 flex-col">
     {items.map((nestedCommit, index) => {
       return <div className="flex gap-12" key={index}>{nestedCommit.map((commit, index) => {
-        return <Item id={commit?.id ?? 'null-' + btoa(JSON.stringify(items))} {...commit} branchComponent={branchComponent} commitComponent={commitComponent} key={index} uniqueKey={randomTimelineKey} />
+        return <Item branchComponent={branchComponent} commitComponent={commitComponent} id={commit?.id ?? 'null-' + btoa(JSON.stringify(items))} {...commit} key={index} uniqueKey={randomTimelineKey} />
       })}</div>
     })
     }

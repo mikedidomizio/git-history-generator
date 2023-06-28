@@ -3,7 +3,7 @@ import clsx from "clsx";
 import {ReactNode} from "react";
 import {Arrow} from "@/components/Arrow";
 
-export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
+export type CommitComponentProps = { commitComponent?: <T extends CommitProps>(props: T) => ReactNode }
 
 export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'> & CommitComponentProps
 
