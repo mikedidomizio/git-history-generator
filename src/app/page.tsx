@@ -20,11 +20,15 @@ export default function Home() {
           <h3 className="mb-4">
             <StylizedLink to="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Zero configuration (git-scm.com)</StylizedLink>
           </h3>
-            <GitScmExample />
+
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/GitScmExample.tsx">Code</StylizedLink>
+          <GitScmExample />
         </div>
 
         <div>
           <h3 className="mb-4">Git</h3>
+
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/TraditionalExample.tsx">Code</StylizedLink>
           <TraditionalExample />
         </div>
 
@@ -32,6 +36,7 @@ export default function Home() {
           <h3 className="mb-4">
             <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian</StylizedLink>
           </h3>
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExample.tsx">Code</StylizedLink>
           <AtlassianExample />
         </div>
 
