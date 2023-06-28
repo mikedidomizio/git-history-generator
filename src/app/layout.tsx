@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Git Commit Visualizer',
+  title: 'Git History Generator',
   description: '',
 }
 

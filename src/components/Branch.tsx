@@ -7,12 +7,20 @@ export type BranchComponentProps = { branchComponent?: (props: BranchProps) => R
 export type BranchProps = Pick<ItemProps, 'arrowTo' | 'id' | 'text' | 'type'> & BranchComponentProps
 
 export const Branch = (props: BranchProps) => {
+  if (props.id.startsWith("null")) {
+    if (props.branchComponent) {
+      return <props.branchComponent {...props} />
+    }
+
+    return <ItemWrapper id={props.id} classNames="invisible" />
+  }
+
   if (props.branchComponent) {
-    return <props.branchComponent {...props} />
+    return <div id={props.id}><props.branchComponent {...props} /></div>
   }
 
   return <>
-    <ItemWrapper id={props.id} classNames="bg-[#F44D27] w-[120px] text-[#E3D7D9]">
+    <ItemWrapper id={props.id} classNames="bg-[#F44D27] text-[#E3D7D9]">
       {props.text}
     </ItemWrapper>
     {props.arrowTo?.map((arrow) => {

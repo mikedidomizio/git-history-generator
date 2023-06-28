@@ -21,10 +21,16 @@ export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode,
   return <div id={id} className={clsx("inline text-center w-[120px] p-1 py-2", classNames)}>{children}</div>
 }
 
-export const Item = (props: ItemProps) => {
+export const Item = (props: ItemProps & { uniqueKey: string }) => {
+  const updateWithUnique = props.arrowTo?.map(arrow => ({
+    ...arrow,
+    to: arrow.to + props.uniqueKey
+  }))
+  const idWithUnique = props.id + props.uniqueKey
+
   if (props.type === 'branch') {
-    return <Branch {...props}/>
+    return <Branch {...props} id={idWithUnique} arrowTo={updateWithUnique} />
   }
 
-  return <Commit {...props} />
+  return <Commit {...props} id={idWithUnique} arrowTo={updateWithUnique} />
 }

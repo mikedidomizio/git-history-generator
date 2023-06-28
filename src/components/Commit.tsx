@@ -5,12 +5,19 @@ import {Arrow} from "@/components/Arrow";
 
 export type CommitComponentProps = { commitComponent?: (props: CommitProps) => ReactNode }
 
-export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'>
-& CommitComponentProps
+export type CommitProps = Pick<ItemProps, 'bounce' | 'dimmed' | 'arrowTo' | 'id' | 'text' | 'type'> & CommitComponentProps
 
 export const Commit = (props: CommitProps) => {
+    if (props.id.startsWith("null")) {
+        if (props.commitComponent) {
+            return <props.commitComponent {...props} />
+        }
+
+        return <ItemWrapper id={props.id} classNames="invisible" />
+    }
+
     if (props.commitComponent) {
-        return <props.commitComponent {...props} />
+        return <div id={props.id}><props.commitComponent {...props} /></div>
     }
 
     return <>
