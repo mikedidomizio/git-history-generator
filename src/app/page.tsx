@@ -126,13 +126,17 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-6">
-      Base variant
-      <br/>
-      <Timeline items={gitHistory} />
-      <br/>
-      Custom components to update branch, commit and links
-      <br/>
-      <Timeline items={gitHistory2} commitComponent={Commit} branchComponent={Branch} />
+      <h1 className="mb-10">Git History Generator</h1>
+
+      <div className="mb-6">
+        <h3>Base look</h3>
+        <Timeline items={gitHistory} />
+      </div>
+
+      <div className="mb-6">
+        <h3>Ability to add pass custom components to update branch, commit and links (arrows)</h3>
+        <Timeline items={gitHistory2} commitComponent={Commit} branchComponent={Branch} />
+      </div>
     </main>
   )
 }

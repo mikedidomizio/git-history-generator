@@ -1,5 +1,5 @@
 {
-  "name": "git-commit-visualizer",
+  "name": "git-history-generator",
   "version": "0.1.0",
   "private": true,
   "scripts": {

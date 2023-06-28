@@ -1,4 +1,4 @@
-# Git Commit Visualizer
+# Git History Generator
 
 The purpose of this project (so far) is for me to be able to render git commits/branches similar to [git-scm.com](https://git-scm.com).
 
