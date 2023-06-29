@@ -1,4 +1,4 @@
-import {ItemProps, ItemWrapper} from "@/components/Item";
+import {ItemProps, ItemWrapper, MakeArrowSafe} from "@/components/Item";
 import {ReactNode} from "react";
 import {Arrow} from "@/components/Arrow";
 
@@ -23,7 +23,7 @@ export const Branch = (props: BranchProps) => {
     <ItemWrapper id={props.id} classNames="bg-[#F44D27] text-[#E3D7D9]">
       {props.text}
     </ItemWrapper>
-    {props.arrowTo?.map((arrow) => {
+    {MakeArrowSafe(props.arrowTo).map((arrow) => {
       return <Arrow key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </>

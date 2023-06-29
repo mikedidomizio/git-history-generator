@@ -1,4 +1,4 @@
-import {ItemProps} from "@/components/Item";
+import {ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";
 import {Arrow} from "@/components/Arrow";
@@ -11,7 +11,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
 
   return <div className={clsx("border-[#404040] border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3", props.circleBackgroundColour)}>
     {props.text}
-    {props.arrowTo?.map((arrow) => {
+    {MakeArrowSafe(props.arrowTo).map((arrow) => {
       return <Arrow curveness={1} strokeWidth={4} headSize={-1} color="#404040" key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </div>
