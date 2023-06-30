@@ -2,6 +2,7 @@
 import {AtlassianExample} from "@/components/variants/AtlassianExample";
 import {TraditionalExample} from "@/components/variants/TraditionalExample";
 import {GitScmExample} from "@/components/variants/GitScmExample";
+import {AtlassianExampleDimmed} from "@/components/variants/AtlassianExampleDimmed";
 import Link from "next/link";
 import {ReactNode} from "react";
 
@@ -38,6 +39,14 @@ export default function Home() {
           </h3>
           <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExample.tsx">Code</StylizedLink>
           <AtlassianExample />
+        </div>
+
+        <div>
+          <h3 className="mb-4">
+            <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian</StylizedLink>
+          </h3>
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExample.tsx">Code</StylizedLink>
+          <AtlassianExampleDimmed />
         </div>
 
       </div>
