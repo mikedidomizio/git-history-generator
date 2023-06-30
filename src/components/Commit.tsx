@@ -27,7 +27,7 @@ export const Commit = (props: CommitProps) => {
             {props.text}
         </ItemWrapper>
         {MakeArrowSafe(props.arrowTo).map((arrow) => {
-            return <Arrow color={props?.dimmed ? '#786F6880' : '#786F68'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+            return <Arrow color={props?.dimmed ? '#786F6880' : '#786F68'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
         })}
     </>
 }

@@ -43,7 +43,7 @@ export default function Home() {
 
         <div>
           <h3 className="mb-4">
-            <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian</StylizedLink>
+            <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian Dashed (Cherry-picked)</StylizedLink>
           </h3>
           <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExample.tsx">Code</StylizedLink>
           <AtlassianExampleDimmed />
