@@ -3,6 +3,14 @@ import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";
 import {Timeline} from "@/components/Timeline";
 import {Arrow} from "@/components/Arrow";
+import {useState} from "react";
+
+const bumpId = (id: string): string => {
+  const startingCharacter = id.charAt(0)
+  const number = parseInt(id.substring(1))
+
+  return startingCharacter + "" + (number + 1)
+}
 
 const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
   if (props.id.startsWith("null")) {
@@ -81,8 +89,27 @@ const gitHistory: (null | ItemProps)[][] = [
 ]
 
 
+const HackySolutionToSeeCommitsAdded = ({ state, setState }: { state: any, setState: any }) => {
+  const handleAdd = () => {
+    const tempGit = state
+    const last = tempGit[2][tempGit[2].length - 1]
+
+    tempGit[2].push(greenCommit(bumpId(last?.id ?? ''), last?.id))
+    setState([
+      ...tempGit
+    ])
+  }
+
+  return  <button onClick={handleAdd}>Add Commit</button>
+}
+
 export const AtlassianExampleDimmed = () => {
+  const [git, setGit] = useState(gitHistory)
+
   return <>
-    <Timeline id="atlassian-dimmed" items={gitHistory} commitComponent={Commit} />
+    <div>
+      <HackySolutionToSeeCommitsAdded state={git} setState={setGit} />
+      <Timeline id="atlassian-dimmed" items={git} commitComponent={Commit} />
+    </div>
   </>
 }
