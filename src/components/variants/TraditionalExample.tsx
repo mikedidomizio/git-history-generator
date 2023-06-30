@@ -13,7 +13,7 @@ const Commit = (props: CommitProps) => {
   return <div className="bg-[#F05033] text-white rounded-full p-3">
     {props.text}
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow strokeWidth={6} headSize={-1} color={props?.dimmed ? '#F05033' : '#F05033'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+      return <Arrow strokeWidth={6} headSize={-1} color={props?.dimmed ? '#F05033' : '#F05033'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
     })}
   </div>
 }
@@ -26,7 +26,7 @@ const Branch = (props: BranchProps) => {
   return <div className="bg-blue-600 text-white p-3">
     {props.text}
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow headSize={-1} color={'#F05033'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+      return <Arrow headSize={-1} color={'#F05033'} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
     })}
   </div>
 }

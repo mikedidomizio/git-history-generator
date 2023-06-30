@@ -3,8 +3,8 @@ import {Branch, BranchComponentProps} from "@/components/Branch";
 import clsx from "clsx";
 import {ReactNode} from "react";
 
-type Arrow = {
-  dashed?: boolean,
+export type ArrowType = {
+  dimmed?: boolean,
   to: string,
 }
 
@@ -13,15 +13,15 @@ export type ItemProps = {
   dimmed?: boolean
   id: string,
   text?: string,
-  arrowTo?: Arrow[] | string,
+  arrowTo?: ArrowType[] | string,
   type?: 'commit' | 'branch'
 } & BranchComponentProps & CommitComponentProps
 
 
-export const MakeArrowSafe = (arrows?: Arrow[] | string): Arrow[] => {
+export const MakeArrowSafe = (arrows?: ArrowType[] | string): ArrowType[] => {
   if (typeof arrows === "string") {
     return [{
-      dashed: false,
+      dimmed: false,
       to: arrows
     }]
   }
@@ -33,7 +33,7 @@ export const MakeArrowSafe = (arrows?: Arrow[] | string): Arrow[] => {
   return []
 }
 
-const updateArrowPropWithUnique = (arrows: Arrow[] | string, uniqueKey: string): Arrow[] => {
+const updateArrowPropWithUnique = (arrows: ArrowType[] | string, uniqueKey: string): ArrowType[] => {
   const arrowsFormatted = MakeArrowSafe(arrows)
 
   return arrowsFormatted.map(arrow => ({

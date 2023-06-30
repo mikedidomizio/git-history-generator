@@ -1,65 +1,88 @@
-import {ItemProps, MakeArrowSafe} from "@/components/Item";
+import {ArrowType, ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";
-import {Arrow} from "@/components/Arrow";
 import {Timeline} from "@/components/Timeline";
+import {Arrow} from "@/components/Arrow";
 
 const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
   if (props.id.startsWith("null")) {
     return <div className="bg-transparent p-3 border-4 border-transparent" />
   }
 
-  return <div className={clsx("border-[#404040] border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3", props.circleBackgroundColour)}>
+  let percentage = "60"
+  let arrowColor = '#404040'
+  let borderStyle = 'border-solid'
+  let circleBackgroundColour = props.circleBackgroundColour
+
+  if (props.arrowTo?.length) {
+    if (props.arrowTo[0]) {
+      if (typeof props.arrowTo[0] !== 'string' && props.arrowTo[0]?.dimmed && props.circleBackgroundColour) {
+        arrowColor += percentage
+        borderStyle = 'border-dashed'
+        circleBackgroundColour += percentage
+      }
+    }
+  }
+
+  return <div style={{ backgroundColor: circleBackgroundColour, borderColor: arrowColor }} className={
+    clsx(`border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3`, borderStyle)}>
     {props.text}
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color="#404040" key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
+      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color={arrowColor} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
     })}
   </div>
 }
 
-const commitItemWithColour = (id: string, to?: string[], colour?: string): ItemProps => {
+const commitItemWithColour = (id: string, arrows?: ArrowType[] | string, colour?: string): ItemProps => {
   return {
     commitComponent: (props: CommitProps) => <Commit {...props} circleBackgroundColour={colour} />,
     id: id,
-    arrowTo: to?.map((item) => {
+    arrowTo: MakeArrowSafe(arrows).map((item) => {
       return {
-        to: item,
+        dimmed: item.dimmed,
+        to: item.to,
       }
     })
   }
 }
 
-const purpleCommit = (id: string, to?: string[]): ItemProps => {
-  return commitItemWithColour(id, to, "bg-[#B18AE8]")
+const purpleCommit = (id: string, to?: ArrowType[] | string): ItemProps => {
+  return commitItemWithColour(id, to, "#B18AE8")
 }
 
-const blueCommit = (id: string, to?: string[]): ItemProps => {
-  return commitItemWithColour(id, to, 'bg-[#B3E3FF]')
+const blueCommit = (id: string, to?: ArrowType[] | string): ItemProps => {
+  return commitItemWithColour(id, to, '#B3E3FF')
 }
 
-const greenCommit = (id: string, to?: string[]): ItemProps => {
-  return commitItemWithColour(id, to, 'bg-[#4DD1A1]')
+const greenCommit = (id: string, to?: ArrowType[] | string): ItemProps => {
+  return commitItemWithColour(id, to, '#4DD1A1')
 }
 
 const gitHistory: (null | ItemProps)[][] = [
   [null, null,
-    purpleCommit('B0', ['C1']),
-    purpleCommit('B1', ['B0'])
+    purpleCommit('B0', 'C1'),
+    purpleCommit('B1', [{
+      to: 'B0',
+      dimmed: true,
+    }])
   ],
   [
     blueCommit('C0'),
-    blueCommit('C1', ['C0']),
-    blueCommit('C2', ['C1']),
-    blueCommit('C4', ['C2']),
-    blueCommit('C5', ['C4']),
+    blueCommit('C1', 'C0'),
+    blueCommit('C2', 'C1'),
+    blueCommit('C4', 'C2'),
+    blueCommit('C5', 'C4'),
+    purpleCommit('C6', 'C5')
   ],
   [null, null, null, null,
-    greenCommit('D1', ['C4']),
-    greenCommit('D2', ['D1'])
+    greenCommit('D1', 'C4'),
+    greenCommit('D2', 'D1')
   ]
 ]
 
 
 export const AtlassianExampleDimmed = () => {
-  return <Timeline id="atlassian-dimmed" items={gitHistory} commitComponent={Commit} />
+  return <>
+    <Timeline id="atlassian-dimmed" items={gitHistory} commitComponent={Commit} />
+  </>
 }
