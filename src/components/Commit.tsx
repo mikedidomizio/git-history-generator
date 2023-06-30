@@ -22,6 +22,12 @@ export const Commit = (props: CommitProps) => {
         return <div id={props.id}><props.commitComponent {...props} /></div>
     }
 
+    if(MakeArrowSafe(props.arrowTo)) {
+        return <ItemWrapper id={props.id} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]', props?.bounce ? 'animate-bounce' : null)}>
+            {props.text}
+        </ItemWrapper>
+    }
+
     return <>
         <ItemWrapper id={props.id} classNames={clsx("rounded-2xl", props?.dimmed ? `bg-[#efefe780] text-[#786F6880]` : 'bg-[#efefe7] text-[#786F68]', props?.bounce ? 'animate-bounce' : null)}>
             {props.text}
