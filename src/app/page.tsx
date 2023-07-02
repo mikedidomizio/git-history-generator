@@ -22,14 +22,14 @@ export default function Home() {
 
       <div className="flex flex-col gap-y-10">
 
-        {/*<div>*/}
-        {/*  <h3 className="mb-4">*/}
-        {/*    <StylizedLink to="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Zero configuration (git-scm.com)</StylizedLink>*/}
-        {/*  </h3>*/}
+        <div>
+          <h3 className="mb-4">
+            <StylizedLink to="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Zero configuration (git-scm.com)</StylizedLink>
+          </h3>
 
-        {/*  <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/GitScmExample.tsx">Code</StylizedLink>*/}
-        {/*  <GitScmExample />*/}
-        {/*</div>*/}
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/GitScmExample.tsx">Code</StylizedLink>
+          <GitScmExample />
+        </div>
 
         <div>
           <h3 className="mb-4">Git</h3>
