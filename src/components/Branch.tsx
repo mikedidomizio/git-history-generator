@@ -24,7 +24,7 @@ export const Branch = (props: BranchProps) => {
       {props.text}
     </ItemWrapper>
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
+      return <Arrow key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </>
 }

@@ -2,15 +2,19 @@ import {Commit, CommitComponentProps} from "@/components/Commit";
 import {Branch, BranchComponentProps} from "@/components/Branch";
 import clsx from "clsx";
 import {ReactNode} from "react";
+import {ArcherElement} from "react-archer";
 
 export type ArrowType = {
-  dimmed?: boolean,
+  className?: string
+  dashed?: boolean,
+  sourceAnchor?: 'top' | 'right' | 'bottom' | 'left'
+  targetAnchor?: 'top' | 'right' | 'bottom' | 'left'
   to: string,
 }
 
 export type ItemProps = {
   bounce?: boolean,
-  dimmed?: boolean
+  dashed?: boolean
   id: string,
   text?: string,
   arrowTo?: ArrowType[] | string,
@@ -21,7 +25,7 @@ export type ItemProps = {
 export const MakeArrowSafe = (arrows?: ArrowType[] | string): ArrowType[] => {
   if (typeof arrows === "string") {
     return [{
-      dimmed: false,
+      dashed: false,
       to: arrows
     }]
   }
@@ -44,7 +48,9 @@ const updateArrowPropWithUnique = (arrows: ArrowType[] | string, uniqueKey: stri
 
 
 export const ItemWrapper = ({ children, classNames, id }: {children?: ReactNode, classNames?: string, id: string}) => {
-  return <div id={id} className={clsx("inline text-center w-[120px] p-1 py-2", classNames)}>{children}</div>
+  return <ArcherElement id={id}>
+        <div className={clsx("inline text-center w-[120px] p-1 py-2", classNames)}>{children}</div>
+  </ArcherElement>
 }
 
 export const Item = (props: ItemProps & { uniqueKey: string }) => {

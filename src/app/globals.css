@@ -10,12 +10,12 @@ h3 {
     font-size: 18px;
 }
 
-@keyframes cursor-blink {
+@keyframes blink {
     0% {
-        opacity: 0;
+        visibility: hidden
     }
 }
 
 .blinking {
-    animation: cursor-blink 1.5s steps(2) infinite;
+    animation: blink 1.5s steps(2) infinite;
 }

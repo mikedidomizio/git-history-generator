@@ -23,7 +23,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
 
   if (props.arrowTo?.length) {
     if (props.arrowTo[0]) {
-      if (typeof props.arrowTo[0] !== 'string' && props.arrowTo[0]?.dimmed && props.circleBackgroundColour) {
+      if (typeof props.arrowTo[0] !== 'string' && props.arrowTo[0]?.dashed && props.circleBackgroundColour) {
         borderStyle = 'blinking'
       }
     }
@@ -44,7 +44,7 @@ const commitItemWithColour = (id: string, arrows?: ArrowType[] | string, colour?
     id: id,
     arrowTo: MakeArrowSafe(arrows).map((item) => {
       return {
-        dimmed: item.dimmed,
+        dashed: item.dashed,
         to: item.to,
       }
     })
@@ -67,11 +67,11 @@ const gitHistory: (null | ItemProps)[][] = [
   [null, null,
     purpleCommit('B0', [{
       to: 'C1',
-      dimmed: true,
+      dashed: true,
     }]),
     purpleCommit('B1', [{
       to: 'B0',
-      dimmed: true,
+      dashed: true,
     }])
   ],
   [

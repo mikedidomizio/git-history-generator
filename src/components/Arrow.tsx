@@ -10,6 +10,17 @@ export type ArrowProps = {
   strokeWidth?: number
 }
 
+/**
+ * @deprecated Use React-Archer implementation
+ * @param arrow
+ * @param curveness
+ * @param color
+ * @param dashedArrow
+ * @param headSize
+ * @param id
+ * @param strokeWidth
+ * @constructor
+ */
 export const Arrow = ({ arrow, curveness, color, dashedArrow, headSize, id, strokeWidth}: ArrowProps) => {
   return <Xarrow
     dashness={dashedArrow}

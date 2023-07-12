@@ -24,7 +24,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
 
   if (props.arrowTo?.length) {
     if (props.arrowTo[0]) {
-      if (typeof props.arrowTo[0] !== 'string' && props.arrowTo[0]?.dimmed && props.circleBackgroundColour) {
+      if (typeof props.arrowTo[0] !== 'string' && props.arrowTo[0]?.dashed && props.circleBackgroundColour) {
         arrowColor += percentage
         borderStyle = 'border-dashed'
         circleBackgroundColour += percentage
@@ -36,7 +36,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
     clsx(`border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3`, borderStyle)}>
     {props.text}
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color={arrowColor} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
+      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color={arrowColor} key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </div>
 }
@@ -47,7 +47,7 @@ const commitItemWithColour = (id: string, arrows?: ArrowType[] | string, colour?
     id: id,
     arrowTo: MakeArrowSafe(arrows).map((item) => {
       return {
-        dimmed: item.dimmed,
+        dashed: item.dashed,
         to: item.to,
       }
     })
@@ -71,7 +71,7 @@ const gitHistory: (null | ItemProps)[][] = [
     purpleCommit('B0', 'C1'),
     purpleCommit('B1', [{
       to: 'B0',
-      dimmed: true,
+      dashed: true,
     }])
   ],
   [
@@ -109,7 +109,7 @@ export const AtlassianExampleDimmed = () => {
   return <>
     <div>
       <HackySolutionToSeeCommitsAdded state={git} setState={setGit} />
-      <Timeline id="atlassian-dimmed" items={git} commitComponent={Commit} />
+      <Timeline id="atlassian-dashed" items={git} commitComponent={Commit} />
     </div>
   </>
 }
