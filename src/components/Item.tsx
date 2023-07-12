@@ -5,6 +5,7 @@ import {ReactNode} from "react";
 import {ArcherElement} from "react-archer";
 
 export type ArrowType = {
+  className?: string
   dashed?: boolean,
   sourceAnchor?: 'top' | 'right' | 'bottom' | 'left'
   targetAnchor?: 'top' | 'right' | 'bottom' | 'left'
@@ -13,7 +14,7 @@ export type ArrowType = {
 
 export type ItemProps = {
   bounce?: boolean,
-  dimmed?: boolean
+  dashed?: boolean
   id: string,
   text?: string,
   arrowTo?: ArrowType[] | string,

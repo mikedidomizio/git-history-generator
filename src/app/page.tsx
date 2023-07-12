@@ -8,7 +8,6 @@ import Link from "next/link";
 import {ReactNode} from "react";
 import {AtlassianExampleBlinking} from "@/components/variants/AtlassianExampleBlinking";
 
-import { ArcherContainer, ArcherElement } from 'react-archer';
 import {AtlassianBranchArcher} from "@/components/variants/AtlassianBranchArcher";
 
 const StylizedLink = ({ children, to }: { children: ReactNode, to: string }) => {
@@ -35,9 +34,7 @@ export default function Home() {
           <h3 className="mb-4">Git</h3>
 
           <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/TraditionalExample.tsx">Code</StylizedLink>
-          <ArcherContainer strokeColor="red">
-            <TraditionalExample />
-          </ArcherContainer>
+          <TraditionalExample />
         </div>
 
         <div>
@@ -48,11 +45,13 @@ export default function Home() {
           <AtlassianExample />
         </div>
 
+        <div style={{ animation: 'cursor-blink 1.5s steps(2) infinite;' }}>test</div>
+
         <div>
           <h3 className="mb-4">
             <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian Dashed</StylizedLink>
           </h3>
-          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExampleDimmed.tsx">Code</StylizedLink>
+          <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianExampledashed.tsx">Code</StylizedLink>
           <AtlassianExampleDimmed />
         </div>
 
@@ -79,6 +78,10 @@ export default function Home() {
           <StylizedLink to="https://github.com/mikedidomizio/git-history-generator/blob/main/src/components/variants/AtlassianBranchArcher.tsx">Code</StylizedLink>
           <AtlassianBranchArcher />
         </div>
+
+        {/*<svg height="210" width="400">*/}
+        {/*  <path style={{ "animation": "blink 1.5s steps(2) infinite;"}} d="M150 0 L75 200 L225 200 Z" />*/}
+        {/*</svg>*/}
 
       </div>
 

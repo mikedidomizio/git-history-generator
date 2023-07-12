@@ -1,20 +1,22 @@
-import {Arrow, ItemProps, MakeArrowSafe} from "@/components/Item";
+import {ArrowType, ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";
 import {Timeline} from "@/components/Timeline";
 import {ArcherContainer, ArcherElement} from "react-archer";
-import {ReactElement} from "react";
+import {ReactElement, useEffect, useRef, useState} from "react";
 import {RelationType} from "react-archer/lib/types";
 
-type ToType = (string | Arrow)[]
+type ToType = (string | ArrowType)[]
 
-export const buildMappedArrows = (arrowTo: Arrow[]): RelationType[] => {
+export const buildMappedArrows = (arrowTo: ArrowType[]): RelationType[] => {
   return arrowTo.map((arrow) => {
     return {
+      className: arrow.className,
       targetId: arrow.to,
       targetAnchor: arrow.targetAnchor ?? 'right',
       sourceAnchor: arrow.sourceAnchor ?? 'left',
-      style: {strokeColor: '#404040', strokeWidth: 4, endShape: {
+      style: {strokeColor: '#404040', strokeWidth: 4,
+        endShape: {
           circle: {
             radius: -1,
           },
@@ -24,7 +26,7 @@ export const buildMappedArrows = (arrowTo: Arrow[]): RelationType[] => {
   })
 }
 
-export const ArcherElementWithArrows = ({ children, id, arrowTo }: { children: ReactElement, id: string, arrowTo: Arrow[]  }) => {
+export const ArcherElementWithArrows = ({ children, id, arrowTo }: { children: ReactElement, id: string, arrowTo: ArrowType[]  }) => {
   const arrowArr: RelationType[] = buildMappedArrows(arrowTo)
 
   return <ArcherElement
@@ -42,7 +44,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
 
   if (MakeArrowSafe(props.arrowTo).length) {
     return <ArcherElementWithArrows id={props.id} arrowTo={MakeArrowSafe(props.arrowTo)}>
-      <div className={clsx("border-[#404040] border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3", props.circleBackgroundColour)}>
+      <div className={clsx("border-[#404040] border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3", props.circleBackgroundColour, MakeArrowSafe(props.arrowTo)[0].className)}>
         {props.text}
       </div>
     </ArcherElementWithArrows>
@@ -59,7 +61,7 @@ const commitItemWithColour = (id: string, to?: ToType, colour?: string): ItemPro
   return {
     commitComponent: (props: CommitProps) => <Commit {...props} circleBackgroundColour={colour} />,
     id: id,
-    arrowTo: to?.map((item: string | Arrow) => {
+    arrowTo: to?.map((item: string | ArrowType) => {
       if (typeof item === "string") {
         return {
           to: item,
@@ -104,12 +106,25 @@ const gitHistory: (null | ItemProps)[][] = [
     to: 'D0',
     sourceAnchor: 'top',
     targetAnchor: 'bottom'
-  }]), null, greenCommit('E1', ['E0']), greenCommit('E2', ['E1']), greenCommit('E3', ['E2'])],
+  }]), null, greenCommit('E1', ['E0']), greenCommit('E2', ['E1']), greenCommit('E3', [{
+    to: 'E2',
+    className: 'blinking'
+  }])],
 ]
 
 
 export const AtlassianBranchArcher = () => {
-  return <ArcherContainer>
-      <Timeline id="atlassian-branch-2" items={gitHistory} commitComponent={Commit} />
-    </ ArcherContainer>
+  const ref = useRef(false)
+  const [rand, setRand] = useState(1)
+
+  useEffect(() => {
+    if (!ref.current) {
+      ref.current = true
+      setRand(rand + 1)
+    }
+  }, [rand])
+
+  return <ArcherContainer key={rand}>
+    <Timeline id="atlassian-branch-2" items={gitHistory} commitComponent={Commit} />
+  </ ArcherContainer>
 }

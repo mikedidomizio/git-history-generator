@@ -12,7 +12,7 @@ const Commit = (props: CommitProps & { circleBackgroundColour?: string }) => {
   return <div className={clsx("border-[#404040] border-t-4 border-l-4 border-r-4 border-b-4 rounded-full p-3", props.circleBackgroundColour)}>
     {props.text}
     {MakeArrowSafe(props.arrowTo).map((arrow) => {
-      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color="#404040" key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dimmed || false} id={props.id} />
+      return <Arrow curveness={1} strokeWidth={4} headSize={-1} color="#404040" key={arrow.to} arrow={arrow.to} dashedArrow={arrow.dashed || false} id={props.id} />
     })}
   </div>
 }

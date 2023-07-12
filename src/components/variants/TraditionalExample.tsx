@@ -3,7 +3,7 @@ import {ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import {Arrow} from "@/components/Arrow";
 import {BranchProps} from "@/components/Branch";
-import {ArcherElement} from "react-archer";
+import {ArcherContainer, ArcherElement} from "react-archer";
 
 
 const ArcherElementWithArrows = ({ children, id, to }: any) => {
@@ -87,5 +87,7 @@ const gitHistory: (null | ItemProps)[][] = [
   ]]
 
 export const TraditionalExample = () => {
-  return <Timeline id="git" items={gitHistory} commitComponent={Commit} branchComponent={Branch} />
+  return <ArcherContainer>
+    <Timeline id="git" items={gitHistory} commitComponent={Commit} branchComponent={Branch} />
+  </ArcherContainer>
 }

@@ -1,9 +1,10 @@
 import {ItemProps} from "@/components/Item";
 import {Timeline} from "@/components/Timeline";
+import {ArcherContainer} from "react-archer";
 
 const gitHistory: (null | ItemProps)[][] = [
   [null, null, null, {
-    dimmed: true,
+    dashed: true,
     id: 'C4',
     text: 'C4',
     arrowTo: 'C2'
@@ -44,5 +45,5 @@ const gitHistory: (null | ItemProps)[][] = [
   ]]
 
 export const GitScmExample = () => {
-  return <Timeline id="git-scm" items={gitHistory} />
+  return <ArcherContainer><Timeline id="git-scm" items={gitHistory} /></ArcherContainer>
 }
