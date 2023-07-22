@@ -1,3 +1,4 @@
+"use client"
 import {ItemProps} from "@/components/Item";
 import {Timeline} from "@/components/Timeline";
 import {ArcherContainer} from "react-archer";
@@ -45,5 +46,6 @@ const gitHistory: (null | ItemProps)[][] = [
   ]]
 
 export const GitScmExample = () => {
+  // @ts-ignore
   return <ArcherContainer><Timeline id="git-scm" items={gitHistory} /></ArcherContainer>
 }

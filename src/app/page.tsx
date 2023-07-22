@@ -1,4 +1,3 @@
-'use client'
 import {AtlassianBranchExample} from "@/components/variants/AtlassianBranchExample";
 import {AtlassianExample} from "@/components/variants/AtlassianExample";
 import {TraditionalExample} from "@/components/variants/TraditionalExample";

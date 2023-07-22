@@ -1,3 +1,4 @@
+"use client"
 import {ArrowType, ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";
@@ -124,7 +125,9 @@ export const AtlassianBranchArcher = () => {
     }
   }, [rand])
 
+
+  // @ts-ignore
   return <ArcherContainer key={rand}>
-    <Timeline id="atlassian-branch-2" items={gitHistory} commitComponent={Commit} />
-  </ ArcherContainer>
+      <Timeline id="atlassian-branch-2" items={gitHistory} commitComponent={Commit} />
+    </ ArcherContainer>
 }

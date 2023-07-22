@@ -1,3 +1,4 @@
+"use client"
 import {Commit, CommitComponentProps} from "@/components/Commit";
 import {Branch, BranchComponentProps} from "@/components/Branch";
 import clsx from "clsx";
