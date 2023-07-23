@@ -44,8 +44,6 @@ export default function Home() {
           <AtlassianExample />
         </div>
 
-        <div style={{ animation: 'cursor-blink 1.5s steps(2) infinite;' }}>test</div>
-
         <div>
           <h3 className="mb-4">
             <StylizedLink to="https://www.atlassian.com/git/tutorials/using-branches">Atlassian Dashed</StylizedLink>
