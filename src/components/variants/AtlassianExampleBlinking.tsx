@@ -1,3 +1,4 @@
+"use client"
 import {ArrowType, ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
 import clsx from "clsx";

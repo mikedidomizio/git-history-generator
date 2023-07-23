@@ -1,3 +1,4 @@
+"use client"
 import {Timeline} from "@/components/Timeline";
 import {ItemProps, MakeArrowSafe} from "@/components/Item";
 import {CommitProps} from "@/components/Commit";
@@ -87,6 +88,7 @@ const gitHistory: (null | ItemProps)[][] = [
   ]]
 
 export const TraditionalExample = () => {
+  // @ts-ignore
   return <ArcherContainer>
     <Timeline id="git" items={gitHistory} commitComponent={Commit} branchComponent={Branch} />
   </ArcherContainer>

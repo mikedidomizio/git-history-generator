@@ -1,3 +1,4 @@
+"use client"
 import Xarrow, {refType} from "react-xarrows";
 
 export type ArrowProps = {
